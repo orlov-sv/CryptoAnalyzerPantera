@@ -1,7 +1,7 @@
 package com.javarush.orlov;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Encrypt {
     // шифрование и дешифрование с помощью ключа
@@ -18,8 +18,8 @@ public class Encrypt {
 
         ArrayList<String> result = new ArrayList<>();
 
-        for (int i = 0; i < text.size(); i++) {
-            result.add(checkAlphabet(text.get(i), key));
+        for (String s : text) {
+            result.add(checkAlphabet(s, key));
         }
 
         return result;
@@ -30,7 +30,7 @@ public class Encrypt {
 
         for (int k = 0; k < text.length(); k++) {  // перебор символов строки
             char current = text.charAt(k);
-            boolean found = false;
+            boolean found;
 
              found = isFound(key, current, builder);
 

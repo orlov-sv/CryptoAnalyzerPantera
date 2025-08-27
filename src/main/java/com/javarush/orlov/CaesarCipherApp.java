@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class CaesarCipherApp {
 
@@ -15,8 +15,8 @@ public class CaesarCipherApp {
 
 
         FileService.createNewFile("text\\");
-        Encrypt cipher = new Encrypt();
+        Encrypt encrypt = new Encrypt();
 
-        FileService.writeFile("text\\encrypted.txt",cipher.encrypt(text, 3));
+        FileService.writeFile("text\\encrypted.txt",encrypt.encrypt(text, 3));
     }
 }
