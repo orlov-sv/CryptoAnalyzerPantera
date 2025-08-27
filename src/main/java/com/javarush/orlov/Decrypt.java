@@ -1,9 +1,11 @@
 package com.javarush.orlov;
 
-public class Decrypt {
+import java.util.ArrayList;
 
-    public String decrypt(String text, int key){
-        //пока не сделал
-        return null;
+public class Decrypt extends Encrypt{
+
+    public ArrayList<String> decrypt(ArrayList<String> text, int key){
+
+        return super.encrypt(text, -key);
     }
 }

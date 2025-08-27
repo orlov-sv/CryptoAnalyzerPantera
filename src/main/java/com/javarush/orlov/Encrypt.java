@@ -45,7 +45,7 @@ public class Encrypt {
     private boolean isFound(int key, char current, StringBuilder builder) {
         for (int j = 0; j < ALPHABET.length; j++) { // перебор алфавита
             if (current == ALPHABET[j]) {
-                builder.append(ALPHABET[(j + key + ALPHABET.length) % ALPHABET.length]);
+                builder.append(ALPHABET[(j + key%ALPHABET.length + ALPHABET.length) % ALPHABET.length]);
                 return true;
             }
         }

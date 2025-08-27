@@ -16,7 +16,7 @@ public class FileService {
     }
     public static void createNewFile(String filePath) throws IOException {
 
-        Path path = Path.of(filePath + "encrypted.txt");    // путь к файлу, где будет храниться зашифрованный текст
+        Path path = Path.of(filePath);    // путь к файлу, где будет храниться зашифрованный текст
         if (Files.exists(path)){                                // проверка на существование файла
             Files.delete(path);                                 //если существует, то удалаем и создаём новый
             Files.createFile(path);
