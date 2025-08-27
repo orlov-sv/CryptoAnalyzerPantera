@@ -23,4 +23,15 @@ public class FileService {
         else Files.createFile(path);
 
     }
+
+    public static void writeFile(String filePath, String str) {
+        Path path = Paths.get(filePath);
+        try {
+            Files.writeString(path, str);
+        }catch (IOException e){
+            System.out.println("Ошибка записи файла: " + e.getMessage());
+        }
+
+
+    }
 }
