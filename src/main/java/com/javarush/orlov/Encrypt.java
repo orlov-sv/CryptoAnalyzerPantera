@@ -1,5 +1,8 @@
 package com.javarush.orlov;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Encrypt {
     // шифрование и дешифрование с помощью ключа
     public static final char[] ALPHABET = {'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з',
@@ -9,26 +12,44 @@ public class Encrypt {
             'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я'};
 
 
-    public String encrypt(String text, int key){
 
-        StringBuilder builder = new StringBuilder();
 
-        for (int i = 0; i < text.length(); i++) {
-            boolean found = false;
-            for (int j = 0; j < ALPHABET.length; j++) {
-                if (text.charAt(i) == ALPHABET[j]){
-                    builder.append(ALPHABET[(j + key) % ALPHABET.length]);
-                    found = true;
-                    break;
-                }
+    public ArrayList<String> encrypt(ArrayList<String> text, int key){
 
-            }
-            if (!found) builder.append(text.charAt(i));
+        ArrayList<String> result = new ArrayList<>();
+
+        for (int i = 0; i < text.size(); i++) {
+            result.add(checkAlphabet(text.get(i), key));
         }
-        String result = builder.toString();
+
         return result;
     }
 
+    private String checkAlphabet(String text, int key){
+        StringBuilder builder = new StringBuilder();
 
+        for (int k = 0; k < text.length(); k++) {  // перебор символов строки
+            char current = text.charAt(k);
+            boolean found = false;
+
+             found = isFound(key, current, builder);
+
+            if (!found) { // если символа нет в алфавите — оставляем как есть
+                builder.append(current);
+            }
+        }
+
+        return builder.toString();
+    }
+
+    private boolean isFound(int key, char current, StringBuilder builder) {
+        for (int j = 0; j < ALPHABET.length; j++) { // перебор алфавита
+            if (current == ALPHABET[j]) {
+                builder.append(ALPHABET[(j + key + ALPHABET.length) % ALPHABET.length]);
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

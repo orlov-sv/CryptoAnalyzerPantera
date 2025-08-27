@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class FileService {
     // работа с файлами
@@ -24,10 +25,14 @@ public class FileService {
 
     }
 
-    public static void writeFile(String filePath, String str) {
+    public static void writeFile(String filePath, ArrayList<String> str) {
         Path path = Paths.get(filePath);
         try {
-            Files.writeString(path, str);
+            StringBuilder builder = new StringBuilder();
+            for (String line : str){
+                builder.append(line).append(System.lineSeparator());
+            }
+            Files.writeString(path, builder.toString());
         }catch (IOException e){
             System.out.println("Ошибка записи файла: " + e.getMessage());
         }
