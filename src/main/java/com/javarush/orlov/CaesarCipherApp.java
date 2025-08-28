@@ -1,5 +1,4 @@
 package com.javarush.orlov;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,9 +23,14 @@ public class CaesarCipherApp {
                     break;
 
                 case  2:
-                decryptFile();
-                System.out.println("Готово! ");
-                break;
+                    decryptFile();
+                    System.out.println("Готово! ");
+                    break;
+
+                case 3:
+                    bruteForceFile();
+                    System.out.println("Готово! ");
+                    break;
 
                 default:
                     System.out.println("Некорректный выбор, попробуйте снова.");
@@ -54,6 +58,15 @@ public class CaesarCipherApp {
             Decrypt decrypt = new Decrypt();
 
             FileService.writeFile("text\\decrypt.txt", decrypt.decrypt(text, key));
+        }
+
+        private static void bruteForceFile() throws IOException {
+            ArrayList<String> text = new ArrayList<>(Files.readAllLines(Path.of("text\\encrypted.txt")));
+            FileService.createNewFile("text\\bruteForce.txt");
+
+            BruteForce bruteForce = new BruteForce();
+
+            FileService.writeFile("text\\bruteForce.txt", bruteForce.bruteForce(text));
         }
     }
 
