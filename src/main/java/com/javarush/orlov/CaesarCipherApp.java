@@ -32,6 +32,11 @@ public class CaesarCipherApp {
                     System.out.println("Готово! ");
                     break;
 
+                case 4:
+                    statisticalFile();
+                    System.out.println("Готово! ");
+                    break;
+
                 default:
                     System.out.println("Некорректный выбор, попробуйте снова.");
             }
@@ -68,5 +73,14 @@ public class CaesarCipherApp {
 
             FileService.writeFile("text\\bruteForce.txt", bruteForce.bruteForce(text));
         }
+
+        private static void statisticalFile() throws IOException {
+        ArrayList<String> text = new ArrayList<>(Files.readAllLines(Path.of("text\\encrypted.txt")));
+        FileService.createNewFile("text\\statisticalAnalysis.txt");
+
+        StatisticalAnalysis statisticalAnalysis = new StatisticalAnalysis();
+
+        FileService.writeFile("text\\statisticalAnalysis.txt", statisticalAnalysis.statisticalAnalysis(text));
+    }
     }
 

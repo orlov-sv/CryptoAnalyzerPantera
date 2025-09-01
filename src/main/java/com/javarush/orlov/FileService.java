@@ -32,11 +32,11 @@ public class FileService {
             for (String line : str){
                 builder.append(line).append(System.lineSeparator());
             }
-            Files.writeString(path, builder.toString());
-        }catch (IOException e){
+            // Запись с явным указанием кодировки UTF-8
+            Files.writeString(path, builder.toString(), StandardCharsets.UTF_8);
+        } catch (IOException e){
             System.out.println("Ошибка записи файла: " + e.getMessage());
         }
-
-
     }
+
 }
