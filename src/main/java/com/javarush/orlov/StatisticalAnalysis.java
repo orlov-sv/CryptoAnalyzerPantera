@@ -8,7 +8,7 @@ public class StatisticalAnalysis {
 
     // Выполняет статистический анализ текста для взлома шифра Цезаря
     // Объединяет весь текст в одну строку, находит самый частый символ и расшифровывает текст
-    public ArrayList<String> statisticalAnalysis(ArrayList<String> text){
+    public ArrayList<String> statisticalAnalysis(ArrayList<String> text) {
         ArrayList<String> result = new ArrayList<>();
 
         // Объединяем все строки текста в одну для анализа частоты символов
@@ -31,7 +31,7 @@ public class StatisticalAnalysis {
     }
 
     // Находит символ, который встречается чаще всего в строке
-    private char word(String line){
+    private char word(String line) {
         HashMap<Character, Integer> count = new HashMap<>();
 
         // Подсчитываем количество каждого символа

@@ -34,14 +34,14 @@ public class FileService {
             StringBuilder builder = new StringBuilder();
 
             // Объединяем все строки с переносами
-            for (String line : str){
+            for (String line : str) {
                 builder.append(line).append(System.lineSeparator());
             }
 
             // Запись в файл с явным указанием кодировки UTF-8
             Files.writeString(path, builder.toString(), StandardCharsets.UTF_8);
 
-        } catch (IOException e){
+        } catch (IOException e) {
             // Вывод ошибки, если запись не удалась
             System.out.println("Ошибка записи файла: " + e.getMessage());
         }

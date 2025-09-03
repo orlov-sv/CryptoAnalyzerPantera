@@ -9,7 +9,7 @@ public class BruteForce extends Encrypt {
 
     // Метод перебирает все возможные ключи шифра Цезаря и выбирает лучший
     // Лучший ключ определяется по количеству слов из словаря, найденных в тексте
-    public ArrayList<String> bruteForce(ArrayList<String> text){
+    public ArrayList<String> bruteForce(ArrayList<String> text) {
         ArrayList<String> result;
         int key = 0;       // ключ с наибольшим количеством совпадений
         int count = 0;     // максимальное количество совпадений слов из словаря
@@ -18,7 +18,7 @@ public class BruteForce extends Encrypt {
         for (int i = 0; i < ALPHABET.length; i++) {
             result = super.encrypt(text, i);  // "расшифровываем" текст с текущим ключом
             int temp = extracted(result);     // подсчитываем совпадения слов из словаря
-            if (temp > count){
+            if (temp > count) {
                 key = i;      // если найдено больше совпадений, сохраняем ключ
                 count = temp;
             }
@@ -41,7 +41,7 @@ public class BruteForce extends Encrypt {
     }
 
     // Метод проверяет строку на наличие слов из словаря
-    private static int checkWord(String str){
+    private static int checkWord(String str) {
         int count = 0;
 
         // Разбиваем строку на слова по пробелам
@@ -53,7 +53,7 @@ public class BruteForce extends Encrypt {
 
             // Сравниваем слово с каждым словом из словаря (игнорируя регистр)
             for (int j = 0; j < DICTIONARY.length; j++) {
-                if (word[i].equalsIgnoreCase(DICTIONARY[j])){
+                if (word[i].equalsIgnoreCase(DICTIONARY[j])) {
                     count++;   // если совпадение найдено, увеличиваем счетчик
                 }
             }

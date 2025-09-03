@@ -6,7 +6,7 @@ public class Decrypt {
 
     // Метод расшифровывает текст, используя ключ шифра Цезаря
     // Для расшифровки используется метод шифрования с отрицательным ключом
-    public ArrayList<String> decrypt(ArrayList<String> text, int key){
+    public ArrayList<String> decrypt(ArrayList<String> text, int key) {
 
         // Создаём объект класса Encrypt для работы с шифром Цезаря
         Encrypt encrypt = new Encrypt();
